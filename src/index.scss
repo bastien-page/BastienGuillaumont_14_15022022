@@ -3,9 +3,10 @@
 @import "./styles/typo";
 
 @import "../src/components/Header/Header";
+@import "../src/components/Form/Form";
+@import "../src/components/Input/Input";
 
 body {
-  height: 100vh;
   font-family: "Gudea", sans-serif;
   font-size: 18px;
   color: $colorfont;
