@@ -1,0 +1,18 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 1400px;
+  & h1 {
+    font-family: $fonttitle;
+    font-weight: 800;
+    font-size: 3rem;
+    color: $colorprimary;
+    margin-right: 5rem;
+  }
+  & img {
+    width: 150px;
+  }
+}

@@ -2,9 +2,18 @@
 @import "./styles/variables";
 @import "./styles/typo";
 
+@import "../src/components/Header/Header";
+
 body {
+  height: 100vh;
   font-family: "Gudea", sans-serif;
   font-size: 18px;
-  background-color: $colorbg;
   color: $colorfont;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    126deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(245, 247, 244, 1) 40%,
+    rgba(203, 210, 185, 1) 100%
+  );
 }
