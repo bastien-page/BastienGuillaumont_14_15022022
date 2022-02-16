@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Dropdown from "../Dropdown/Dropdown";
 import Input from "../Input/Input";
+
+import states from "../../assets/dataStates.json";
+import departments from "../../assets/dataDepartment.json";
 
 function Form() {
   const [firsName, setFirstName] = useState();
@@ -8,8 +12,10 @@ function Form() {
   const [birthday, setBirthday] = useState();
   const [startDay, setStartDay] = useState();
   const [street, setStreet] = useState();
+  const [state, setState] = useState();
   const [city, setCity] = useState();
   const [zip, setZip] = useState();
+  const [department, setDepartment] = useState();
 
   const employeeData = {
     firsName,
@@ -18,7 +24,9 @@ function Form() {
     startDay,
     street,
     city,
+    state,
     zip,
+    department,
   };
 
   const createEmployee = (e) => {
@@ -71,6 +79,11 @@ function Form() {
             label={"City"}
             onChange={(e) => setCity(e.target.value)}
           />
+          <Dropdown
+            name={"State"}
+            datas={states}
+            onChange={(e) => setState(e.target.value)}
+          />
           <Input
             type={"number"}
             name={"zip"}
@@ -78,7 +91,11 @@ function Form() {
             onChange={(e) => setZip(e.target.value)}
           />
         </fieldset>
-
+        <Dropdown
+          name={"Department"}
+          datas={departments}
+          onChange={(e) => setDepartment(e.target.value)}
+        />
         <input className="btn" type="submit" value="Save" />
       </form>
     </div>
