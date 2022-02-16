@@ -1,6 +1,6 @@
 import React from "react";
 
-function Input({ type, label, name, method }) {
+function Input({ type, label, name, onChange }) {
   return (
     <div className="input">
       <label className="input__label" htmlFor={name}>
@@ -11,7 +11,7 @@ function Input({ type, label, name, method }) {
         type={type}
         id={name}
         name={name}
-        onChange={method}
+        onChange={onChange}
       />
     </div>
   );

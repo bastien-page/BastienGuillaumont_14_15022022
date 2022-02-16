@@ -1,4 +1,3 @@
-import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Employee from "./view/Employee";
 import Home from "./view/Home";
