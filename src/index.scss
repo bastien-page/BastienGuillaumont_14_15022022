@@ -5,6 +5,7 @@
 @import "../src/components/Header/Header";
 @import "../src/components/Form/Form";
 @import "../src/components/Input/Input";
+@import "../src/components/EmployeesList/EmployeesList";
 
 body {
   font-family: "Gudea", sans-serif;
@@ -17,4 +18,34 @@ body {
     rgba(245, 247, 244, 1) 40%,
     rgba(203, 210, 185, 1) 100%
   );
+  min-height: 100vh;
+}
+
+h1 {
+  font-family: $fonttitle;
+  font-weight: 800;
+  font-size: 3rem;
+  color: $colorprimary;
+  margin-right: 5rem;
+}
+
+h2 {
+  font-family: $fonttitle;
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.btn {
+  border: none;
+  background-color: $colorprimary;
+  padding: 1rem;
+  border-radius: 10px;
+  color: $colorbg;
+  margin: 1rem;
+  box-shadow: 2px 2px 15px 1px rgba(0, 0, 0, 0.61);
+}
+
+main {
+  margin-bottom: 4rem;
 }

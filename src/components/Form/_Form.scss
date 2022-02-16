@@ -4,16 +4,6 @@
   justify-content: center;
   align-items: center;
   margin-top: 3rem;
-  margin-bottom: 10rem;
-  &__btn {
-    border: none;
-    background-color: $colorprimary;
-    padding: 1rem;
-    border-radius: 10px;
-    color: $colorbg;
-    margin: 1rem;
-    box-shadow: 2px 2px 15px 1px rgba(0, 0, 0, 0.61);
-  }
   & form {
     position: relative;
     width: 60%;
@@ -23,12 +13,6 @@
     background-color: $colorbgsecondary;
     box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.43);
     padding-bottom: 7rem;
-    & h2 {
-      font-family: $fonttitle;
-      font-size: 2rem;
-      font-weight: 600;
-      text-align: center;
-    }
     & fieldset {
       margin-top: 2rem;
       padding: 1rem;

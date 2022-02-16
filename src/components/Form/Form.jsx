@@ -28,7 +28,7 @@ function Form() {
 
   return (
     <div className="form">
-      <Link className="form__btn" to="/employee">
+      <Link className="btn" to="/employee">
         View Current Employees
       </Link>
       <form action="" onSubmit={(e) => createEmployee(e)}>
@@ -79,7 +79,7 @@ function Form() {
           />
         </fieldset>
 
-        <input className="form__btn" type="submit" value="Save" />
+        <input className="btn" type="submit" value="Save" />
       </form>
     </div>
   );
