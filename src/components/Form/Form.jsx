@@ -5,9 +5,11 @@ import Input from "../Input/Input";
 
 import states from "../../assets/dataStates.json";
 import departments from "../../assets/dataDepartment.json";
+import { useDispatch } from "react-redux";
+import { addUser } from "../../actions/createEmployee.action";
 
 function Form() {
-  const [firsName, setFirstName] = useState();
+  const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
   const [birthday, setBirthday] = useState();
   const [startDay, setStartDay] = useState();
@@ -17,8 +19,10 @@ function Form() {
   const [zip, setZip] = useState();
   const [department, setDepartment] = useState();
 
+  const dispatch = useDispatch();
+
   const employeeData = {
-    firsName,
+    firstName,
     lastName,
     birthday,
     startDay,
@@ -31,7 +35,7 @@ function Form() {
 
   const createEmployee = (e) => {
     e.preventDefault();
-    console.log(employeeData);
+    dispatch(addUser(employeeData));
   };
 
   return (

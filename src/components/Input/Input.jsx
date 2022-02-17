@@ -12,6 +12,7 @@ function Input({ type, label, name, onChange }) {
         id={name}
         name={name}
         onChange={onChange}
+        // required
       />
     </div>
   );
