@@ -1,9 +1,14 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 function EmployeesList() {
+  const employees = useSelector((state) => state);
+
+  console.log(employees);
+
   return (
     <div className="employeeList">
-      <table>
+      <table className="employeeList__table">
         <thead>
           <tr>
             <th>First Name</th>
@@ -18,10 +23,19 @@ function EmployeesList() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>The table body</td>
-            <td>with two columns</td>
-          </tr>
+          {employees.map((employee) => (
+            <tr key={employee.id}>
+              <td>{employee.user.firstName}</td>
+              <td>{employee.user.lastName}</td>
+              <td>{employee.user.startDay}</td>
+              <td>{employee.user.department}</td>
+              <td>{employee.user.birthday}</td>
+              <td>{employee.user.street}</td>
+              <td>{employee.user.city}</td>
+              <td>{employee.user.state}</td>
+              <td>{employee.user.zip}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
