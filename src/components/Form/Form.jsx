@@ -7,6 +7,7 @@ import states from "../../assets/dataStates.json";
 import departments from "../../assets/dataDepartment.json";
 import { useDispatch } from "react-redux";
 import { addUser } from "../../actions/createEmployee.action";
+import Modal from "../Modal/Modal";
 
 function Form() {
   const [firstName, setFirstName] = useState();
@@ -18,6 +19,10 @@ function Form() {
   const [city, setCity] = useState();
   const [zip, setZip] = useState();
   const [department, setDepartment] = useState();
+
+  const [openModal, setOpenModal] = useState(false);
+  const onOpenModal = () => setOpenModal(true);
+  const onCloseModal = () => setOpenModal(false);
 
   const dispatch = useDispatch();
 
@@ -36,6 +41,8 @@ function Form() {
   const createEmployee = (e) => {
     e.preventDefault();
     dispatch(addUser(employeeData));
+    e.target.reset();
+    onOpenModal();
   };
 
   return (
@@ -102,6 +109,9 @@ function Form() {
         />
         <input className="btn" type="submit" value="Save" />
       </form>
+      {openModal && (
+        <Modal message={"Employee created"} onCloseModal={onCloseModal} />
+      )}
     </div>
   );
 }
