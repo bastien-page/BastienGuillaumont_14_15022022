@@ -1,0 +1,19 @@
+.headerTable {
+  display: flex;
+  justify-content: space-between;
+  & .input {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    &__label {
+      margin: 0;
+    }
+    &__input {
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+select[name="Show"] {
+  margin-right: 0.5rem;
+}

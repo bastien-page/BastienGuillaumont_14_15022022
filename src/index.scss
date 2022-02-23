@@ -7,6 +7,8 @@
 @import "../src/components/Input/Input";
 @import "../src/components/EmployeesList/EmployeesList";
 @import "../src/components/Modal/Modal";
+@import "../src/components/HeaderTable/HeaderTable.scss";
+@import "../src/components/FooterTable/FooterTable.scss";
 
 body {
   font-family: "Gudea", sans-serif;
@@ -49,4 +51,15 @@ h2 {
 
 main {
   margin-bottom: 4rem;
+}
+
+.employee {
+  position: absolute;
+  left: 50%;
+  bottom: 3rem;
+  transform: translate(-50%);
+}
+
+.center {
+  text-align: center;
 }

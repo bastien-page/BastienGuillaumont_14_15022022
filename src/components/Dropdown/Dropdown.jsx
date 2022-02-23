@@ -1,8 +1,8 @@
-function Dropdown({ name, datas, onChange }) {
+function Dropdown({ name, datas, onChange, children }) {
   return (
     <div className="input">
       <label className="input__label" htmlFor={name}>
-        State
+        {name}
       </label>
       <select
         className="input__input"
@@ -16,6 +16,7 @@ function Dropdown({ name, datas, onChange }) {
           </option>
         ))}
       </select>
+      {children}
     </div>
   );
 }

@@ -1,13 +1,15 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import HeaderTable from "../HeaderTable/HeaderTable";
+import FooterTable from "../FooterTable/FooterTable";
 
 function EmployeesList() {
   const employees = useSelector((state) => state);
 
-  console.log(employees);
-
   return (
     <div className="employeeList">
+      <HeaderTable />
+
       <table className="employeeList__table">
         <thead>
           <tr>
@@ -23,21 +25,31 @@ function EmployeesList() {
           </tr>
         </thead>
         <tbody>
-          {employees.map((employee) => (
-            <tr key={employee.id}>
-              <td>{employee.user.firstName}</td>
-              <td>{employee.user.lastName}</td>
-              <td>{employee.user.startDay}</td>
-              <td>{employee.user.department}</td>
-              <td>{employee.user.birthday}</td>
-              <td>{employee.user.street}</td>
-              <td>{employee.user.city}</td>
-              <td>{employee.user.state}</td>
-              <td>{employee.user.zip}</td>
+          {employees.length === 0 ? (
+            <tr>
+              <td className="center" colSpan="9">
+                No data available in table
+              </td>
             </tr>
-          ))}
+          ) : (
+            employees.map((employee) => (
+              <tr key={employee.id}>
+                <td>{employee.user.firstName}</td>
+                <td>{employee.user.lastName}</td>
+                <td>{employee.user.startDay}</td>
+                <td>{employee.user.department}</td>
+                <td>{employee.user.birthday}</td>
+                <td>{employee.user.street}</td>
+                <td>{employee.user.city}</td>
+                <td>{employee.user.state}</td>
+                <td>{employee.user.zip}</td>
+              </tr>
+            ))
+          )}
         </tbody>
       </table>
+
+      <FooterTable />
     </div>
   );
 }

@@ -16,6 +16,7 @@
     padding: 2rem;
     border-radius: 25px;
     background-color: $colorprimary;
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.43);
   }
   &__message {
     font-size: 2rem;
@@ -31,5 +32,6 @@
     line-height: 40px;
     border-radius: 50%;
     background-color: $colorbg;
+    cursor: pointer;
   }
 }

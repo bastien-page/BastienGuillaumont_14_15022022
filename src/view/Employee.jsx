@@ -9,8 +9,9 @@ function Employee() {
       <Header />
       <main>
         <h2>Current Employees</h2>
+
         <EmployeesList />
-        <Link className="btn" to="/">
+        <Link className="btn employee" to="/">
           Home
         </Link>
       </main>
