@@ -9,6 +9,8 @@ import { useDispatch } from "react-redux";
 import { addUser } from "../../actions/createEmployee.action";
 import Modal from "../Modal/Modal";
 
+import { useSelector } from "react-redux";
+
 function Form() {
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
@@ -40,10 +42,14 @@ function Form() {
 
   const createEmployee = (e) => {
     e.preventDefault();
-    dispatch(addUser(employeeData));
+    dispatch(addUser(employeeData, employeeList));
     e.target.reset();
     onOpenModal();
   };
+
+  /// A confirmer avec Hamza si c'est une bonne méthode
+  const employeeList = useSelector((state) => state);
+  sessionStorage.setItem("employees", JSON.stringify(employeeList));
 
   return (
     <div className="form">

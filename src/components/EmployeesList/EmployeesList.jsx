@@ -4,7 +4,14 @@ import HeaderTable from "../HeaderTable/HeaderTable";
 import FooterTable from "../FooterTable/FooterTable";
 
 function EmployeesList() {
-  const employees = useSelector((state) => state);
+  const employeesRedux = useSelector((state) => state);
+
+  const employeesSessionStorage = JSON.parse(
+    sessionStorage.getItem("employees")
+  );
+
+  const employees =
+    employeesRedux.length > 0 ? employeesRedux : employeesSessionStorage;
 
   return (
     <div className="employeeList">
@@ -13,7 +20,10 @@ function EmployeesList() {
       <table className="employeeList__table">
         <thead>
           <tr>
-            <th>First Name</th>
+            <th>
+              First Name <span> &and;</span>
+              <span>&or;</span>
+            </th>
             <th>Last Name</th>
             <th>Start Date</th>
             <th>Departement</th>

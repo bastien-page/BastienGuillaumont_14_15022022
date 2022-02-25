@@ -9,10 +9,12 @@
     border-collapse: collapse;
     margin: 0 auto;
     & th {
-      text-align: center;
+      text-align: left;
       padding: 0.5rem;
       border-bottom: 3px solid $colorprimary;
       font-weight: 700;
+      & div {
+      }
     }
     td {
       font-size: 0.8rem;

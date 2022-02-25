@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Dropdown from "../Dropdown/Dropdown";
 import Input from "../Input/Input";
 
 function HeaderTable() {
+  const [showValue, setShowValue] = useState(10);
+
   return (
     <div className="headerTable">
       <Dropdown
@@ -13,6 +15,7 @@ function HeaderTable() {
           { name: 50, value: 50 },
           { name: 100, value: 100 },
         ]}
+        onChange={(e) => setShowValue(parseInt(e.target.value, 10))}
       >
         entries
       </Dropdown>
