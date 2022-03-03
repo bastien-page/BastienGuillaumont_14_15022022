@@ -1,20 +1,36 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { next, previous } from "../../slices/table.slice";
 
 function FooterTable() {
-  const employeesLength = useSelector((state) => state).length;
+  const totalEmployees = useSelector((state) => state.users).length;
+  const lengthTable = useSelector((state) => state.table.length);
+  const indexStart = useSelector((state) => state.table.indexStart);
+  const indexEnd = useSelector((state) => state.table.indexEnd);
 
-  const show = employeesLength === 0 ? 0 : 1;
+  const dispatch = useDispatch();
+
+  const showing = totalEmployees ? indexStart + 1 : 0;
+  const to = totalEmployees <= lengthTable ? totalEmployees : indexEnd;
 
   return (
     <div className="footerTable">
       <div>
-        Showing <span>{show}</span> to <span>{employeesLength}</span> of{" "}
-        <span>{employeesLength}</span> entries
+        Showing <span>{showing}</span> to <span>{to}</span> of{" "}
+        <span>{totalEmployees}</span> entries
       </div>
       <div>
-        <button className="btn">Previous</button>
-        <button className="btn">Next</button>
+        {indexStart > 0 && (
+          <button className="btn" onClick={() => dispatch(previous())}>
+            Previous
+          </button>
+        )}
+        {indexEnd < totalEmployees && (
+          <button className="btn" onClick={() => dispatch(next())}>
+            Next
+          </button>
+        )}
       </div>
     </div>
   );

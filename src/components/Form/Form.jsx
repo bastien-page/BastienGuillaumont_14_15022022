@@ -37,6 +37,7 @@ function Form() {
     state,
     zip,
     department,
+    id: Date.now(),
   };
 
   const createEmployee = (e) => {

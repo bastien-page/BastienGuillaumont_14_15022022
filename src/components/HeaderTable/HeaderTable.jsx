@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
+import { changeLength, filterTable } from "../../slices/table.slice";
+import { useDispatch } from "react-redux";
 import Dropdown from "../Dropdown/Dropdown";
 import Input from "../Input/Input";
 
 function HeaderTable() {
-  const [showValue, setShowValue] = useState(10);
+  
+  const dispatch = useDispatch();
 
   return (
     <div className="headerTable">
@@ -15,11 +18,16 @@ function HeaderTable() {
           { name: 50, value: 50 },
           { name: 100, value: 100 },
         ]}
-        onChange={(e) => setShowValue(parseInt(e.target.value, 10))}
+        onChange={(e) => dispatch(changeLength(parseInt(e.target.value, 10)))}
       >
         entries
       </Dropdown>
-      <Input type="text" label="Search" name="search" />
+      <Input
+        type="text"
+        label="Search"
+        name="search"
+        onChange={(e) => dispatch(filterTable(e.target.value))}
+      />
     </div>
   );
 }

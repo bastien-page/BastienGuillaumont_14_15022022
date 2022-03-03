@@ -4,7 +4,36 @@ import HeaderTable from "../HeaderTable/HeaderTable";
 import FooterTable from "../FooterTable/FooterTable";
 
 function EmployeesList() {
-  const employees = useSelector((state) => state.user);
+  const employees = useSelector((state) => state.users);
+  const filter = useSelector((state) => state.filter);
+  // const lengthTable = useSelector((state) => state.table.length);
+  const indexStart = useSelector((state) => state.table.indexStart);
+  const indexEnd = useSelector((state) => state.table.indexEnd);
+
+  const filterFunction = (element, filter) => {
+    if (element.firstName.includes(filter)) {
+      return element;
+    }
+  };
+  const test = employees.filter((employee) => filterFunction(employee, filter));
+
+  console.log(test);
+
+  const tableContent = (employees, indexStart, indexEnd) => {
+    return employees.slice(indexStart, indexEnd).map((employee) => (
+      <tr key={employee.id}>
+        <td>{employee.firstName}</td>
+        <td>{employee.lastName}</td>
+        <td>{employee.startDay}</td>
+        <td>{employee.department}</td>
+        <td>{employee.birthday}</td>
+        <td>{employee.street}</td>
+        <td>{employee.city}</td>
+        <td>{employee.state}</td>
+        <td>{employee.zip}</td>
+      </tr>
+    ));
+  };
 
   return (
     <div className="employeeList">
@@ -35,19 +64,7 @@ function EmployeesList() {
               </td>
             </tr>
           ) : (
-            employees.map((employee) => (
-              <tr key={employee.id}>
-                <td>{employee.user.firstName}</td>
-                <td>{employee.user.lastName}</td>
-                <td>{employee.user.startDay}</td>
-                <td>{employee.user.department}</td>
-                <td>{employee.user.birthday}</td>
-                <td>{employee.user.street}</td>
-                <td>{employee.user.city}</td>
-                <td>{employee.user.state}</td>
-                <td>{employee.user.zip}</td>
-              </tr>
-            ))
+            tableContent(employees, indexStart, indexEnd)
           )}
         </tbody>
       </table>
