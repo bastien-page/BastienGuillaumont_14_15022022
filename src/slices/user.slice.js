@@ -8,9 +8,6 @@ export const userSlice = createSlice({
       : [],
   reducers: {
     addUser: (state, action) => {
-      // const newUser = {
-      //   user: action.payload,
-      // };
       state.push(action.payload);
       sessionStorage.setItem("employees", JSON.stringify(state));
     },

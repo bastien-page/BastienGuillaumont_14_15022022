@@ -5,7 +5,6 @@ import Dropdown from "../Dropdown/Dropdown";
 import Input from "../Input/Input";
 
 function HeaderTable() {
-  
   const dispatch = useDispatch();
 
   return (
@@ -26,7 +25,11 @@ function HeaderTable() {
         type="text"
         label="Search"
         name="search"
-        onChange={(e) => dispatch(filterTable(e.target.value))}
+        onChange={(e) =>
+          e.target.value.length >= 3
+            ? dispatch(filterTable(e.target.value))
+            : dispatch(filterTable(null))
+        }
       />
     </div>
   );

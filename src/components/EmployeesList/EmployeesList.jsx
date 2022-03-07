@@ -5,34 +5,41 @@ import FooterTable from "../FooterTable/FooterTable";
 
 function EmployeesList() {
   const employees = useSelector((state) => state.users);
-  const filter = useSelector((state) => state.filter);
-  // const lengthTable = useSelector((state) => state.table.length);
+  const filter = useSelector((state) => state.table.filter);
+
   const indexStart = useSelector((state) => state.table.indexStart);
   const indexEnd = useSelector((state) => state.table.indexEnd);
 
-  const filterFunction = (element, filter) => {
+  const filterElement = (element, filter) => {
     if (element.firstName.includes(filter)) {
       return element;
     }
   };
-  const test = employees.filter((employee) => filterFunction(employee, filter));
 
-  console.log(test);
+  const filterEmployee = () => {
+    if (filter !== null) {
+      return employees.filter((employee) => filterElement(employee, filter));
+    } else {
+      return employees;
+    }
+  };
 
-  const tableContent = (employees, indexStart, indexEnd) => {
-    return employees.slice(indexStart, indexEnd).map((employee) => (
-      <tr key={employee.id}>
-        <td>{employee.firstName}</td>
-        <td>{employee.lastName}</td>
-        <td>{employee.startDay}</td>
-        <td>{employee.department}</td>
-        <td>{employee.birthday}</td>
-        <td>{employee.street}</td>
-        <td>{employee.city}</td>
-        <td>{employee.state}</td>
-        <td>{employee.zip}</td>
-      </tr>
-    ));
+  const tableContent = (indexStart, indexEnd) => {
+    return filterEmployee()
+      .slice(indexStart, indexEnd)
+      .map((employee) => (
+        <tr key={employee.id}>
+          <td>{employee.firstName}</td>
+          <td>{employee.lastName}</td>
+          <td>{employee.startDay}</td>
+          <td>{employee.department}</td>
+          <td>{employee.birthday}</td>
+          <td>{employee.street}</td>
+          <td>{employee.city}</td>
+          <td>{employee.state}</td>
+          <td>{employee.zip}</td>
+        </tr>
+      ));
   };
 
   return (
@@ -64,7 +71,7 @@ function EmployeesList() {
               </td>
             </tr>
           ) : (
-            tableContent(employees, indexStart, indexEnd)
+            tableContent(indexStart, indexEnd)
           )}
         </tbody>
       </table>
