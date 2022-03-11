@@ -10,20 +10,35 @@
     margin: 0 auto;
     & th {
       text-align: left;
-      padding: 0.5rem;
       border-bottom: 3px solid $colorprimary;
       font-weight: 700;
-      & div {
-      }
+      padding-right: 1rem;
+      cursor: pointer;
     }
     td {
       font-size: 0.8rem;
       padding: 0.5rem;
       border-bottom: 1px solid $colorfont;
+      text-transform: capitalize;
     }
     td[class="center"] {
       font-size: 1rem;
       font-weight: 700;
     }
   }
+}
+
+.sort__asc {
+  background: url("https://api.iconify.design/ic:baseline-arrow-drop-up.svg?color=currentColor")
+    no-repeat right top;
+}
+.sort__des {
+  background: url("https://api.iconify.design/ic:baseline-arrow-drop-down.svg?color=currentColor")
+    no-repeat right bottom;
+}
+.sort__both {
+  background: no-repeat right top
+      url("https://api.iconify.design/ic:baseline-arrow-drop-up.svg?color=currentColor"),
+    no-repeat right bottom
+      url("https://api.iconify.design/ic:baseline-arrow-drop-down.svg?color=currentColor");
 }

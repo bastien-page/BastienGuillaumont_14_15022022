@@ -27,6 +27,8 @@ function Form() {
 
   const dispatch = useDispatch();
 
+  const zipRegex = new RegExp(/^\d{5}$/g);
+
   const employeeData = {
     firstName,
     lastName,
@@ -43,8 +45,8 @@ function Form() {
   const createEmployee = (e) => {
     e.preventDefault();
     dispatch(addUser(employeeData));
-    e.target.reset();
-    onOpenModal();
+    //e.target.reset();
+    //onOpenModal();
   };
 
   return (
@@ -103,6 +105,7 @@ function Form() {
             label={"ZIP Code"}
             onChange={(e) => setZip(e.target.value)}
           />
+          {zip !== "" ? console.log(zipRegex.test(zip)) : console.log("ok")}
         </fieldset>
         <Dropdown
           name={"Department"}

@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function Dropdown({ name, datas, onChange, children }) {
   return (
     <div className="input">
@@ -22,3 +24,9 @@ function Dropdown({ name, datas, onChange, children }) {
 }
 
 export default Dropdown;
+
+Dropdown.propTypes = {
+  name: PropTypes.string,
+  datas: PropTypes.array,
+  onChange: PropTypes.func,
+};
