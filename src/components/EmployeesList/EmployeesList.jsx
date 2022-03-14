@@ -55,6 +55,7 @@ function EmployeesList() {
             <th
               className="sort__both"
               onClick={() => {
+                console.log("test");
                 setTableSorted(
                   table.sort((a, b) => {
                     return a.lastName > b.lastName;
