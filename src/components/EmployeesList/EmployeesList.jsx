@@ -10,6 +10,9 @@ function EmployeesList() {
   const indexStart = useSelector((state) => state.table.indexStart);
   const indexEnd = useSelector((state) => state.table.indexEnd);
 
+  const [sortLabel, setSortLabel] = useState("firstName");
+  const [sortAsc, setSortAsc] = useState(true);
+
   let table = [...employees];
 
   const [tableSorted, setTableSorted] = useState(
@@ -41,112 +44,247 @@ function EmployeesList() {
         <thead>
           <tr>
             <th
-              className="sort__both"
-              onClick={() => {
-                setTableSorted([
-                  ...table.sort((a, b) => {
-                    return (
-                      a.firstName.toLowerCase() > b.firstName.toLowerCase()
-                    );
-                  }),
-                ]);
+              id="firstName"
+              className={
+                sortLabel !== "firstName"
+                  ? "sort__both"
+                  : sortAsc
+                  ? "sort__asc"
+                  : "sort__des"
+              }
+              onClick={(e) => {
+                if (e.target.id === sortLabel) {
+                  setTableSorted([...tableSorted.reverse()]);
+                  setSortAsc(!sortAsc);
+                } else {
+                  setSortLabel(e.target.id);
+                  setTableSorted([
+                    ...table.sort((a, b) => {
+                      return (
+                        a.firstName.toLowerCase() > b.firstName.toLowerCase()
+                      );
+                    }),
+                  ]);
+                  setSortAsc(true);
+                }
               }}
             >
               First Name
             </th>
             <th
-              className="sort__both"
-              onClick={() => {
-                setTableSorted([
-                  ...table.sort((a, b) => {
-                    return a.lastName.toLowerCase() > b.lastName.toLowerCase();
-                  }),
-                ]);
+              id="lastName"
+              className={
+                sortLabel !== "lastName"
+                  ? "sort__both"
+                  : sortAsc
+                  ? "sort__asc"
+                  : "sort__des"
+              }
+              onClick={(e) => {
+                if (e.target.id === sortLabel) {
+                  setTableSorted([...tableSorted.reverse()]);
+                  setSortAsc(!sortAsc);
+                } else {
+                  setSortLabel(e.target.id);
+                  setSortAsc(true);
+                  setTableSorted([
+                    ...table.sort((a, b) => {
+                      return (
+                        a.lastName.toLowerCase() > b.lastName.toLowerCase()
+                      );
+                    }),
+                  ]);
+                }
               }}
             >
               Last Name
             </th>
             <th
-              className="sort__both"
-              onClick={() =>
-                setTableSorted([
-                  ...table.sort((a, b) => {
-                    return a.startDate > b.startDate;
-                  }),
-                ])
+              id="startDate"
+              className={
+                sortLabel !== "startDate"
+                  ? "sort__both"
+                  : sortAsc
+                  ? "sort__asc"
+                  : "sort__des"
               }
+              onClick={(e) => {
+                if (e.target.id === sortLabel) {
+                  setTableSorted([...tableSorted.reverse()]);
+                  setSortAsc(!sortAsc);
+                } else {
+                  setSortLabel(e.target.id);
+                  setSortAsc(true);
+                  setTableSorted([
+                    ...table.sort((a, b) => {
+                      return (
+                        a.startDate.toLowerCase() > b.startDate.toLowerCase()
+                      );
+                    }),
+                  ]);
+                }
+              }}
             >
               Start Date
             </th>
             <th
-              className="sort__both"
-              onClick={() =>
-                setTableSorted([
-                  ...table.sort((a, b) => {
-                    return a.department > b.department;
-                  }),
-                ])
+              id="department"
+              className={
+                sortLabel !== "department"
+                  ? "sort__both"
+                  : sortAsc
+                  ? "sort__asc"
+                  : "sort__des"
               }
+              onClick={(e) => {
+                if (e.target.id === sortLabel) {
+                  setTableSorted([...tableSorted.reverse()]);
+                  setSortAsc(!sortAsc);
+                } else {
+                  setSortLabel(e.target.id);
+                  setSortAsc(true);
+                  setTableSorted([
+                    ...table.sort((a, b) => {
+                      return (
+                        a.department.toLowerCase() > b.department.toLowerCase()
+                      );
+                    }),
+                  ]);
+                }
+              }}
             >
               Departement
             </th>
             <th
-              className="sort__both"
-              onClick={() =>
-                setTableSorted([
-                  ...table.sort((a, b) => {
-                    return a.birthday > b.birthday;
-                  }),
-                ])
+              id="birthday"
+              className={
+                sortLabel !== "birthday"
+                  ? "sort__both"
+                  : sortAsc
+                  ? "sort__asc"
+                  : "sort__des"
               }
+              onClick={(e) => {
+                if (e.target.id === sortLabel) {
+                  setTableSorted([...tableSorted.reverse()]);
+                  setSortAsc(!sortAsc);
+                } else {
+                  setSortLabel(e.target.id);
+                  setSortAsc(true);
+                  setTableSorted([
+                    ...table.sort((a, b) => {
+                      return (
+                        a.birthday.toLowerCase() > b.birthday.toLowerCase()
+                      );
+                    }),
+                  ]);
+                }
+              }}
             >
               Date of Birth
             </th>
             <th
-              className="sort__both"
-              onClick={() =>
-                setTableSorted([
-                  ...table.sort((a, b) => {
-                    return a.street > b.street;
-                  }),
-                ])
+              id="street"
+              className={
+                sortLabel !== "street"
+                  ? "sort__both"
+                  : sortAsc
+                  ? "sort__asc"
+                  : "sort__des"
               }
+              onClick={(e) => {
+                if (e.target.id === sortLabel) {
+                  setTableSorted([...tableSorted.reverse()]);
+                  setSortAsc(!sortAsc);
+                } else {
+                  setSortLabel(e.target.id);
+                  setSortAsc(true);
+                  setTableSorted([
+                    ...table.sort((a, b) => {
+                      return a.street.toLowerCase() > b.street.toLowerCase();
+                    }),
+                  ]);
+                }
+              }}
             >
               Street
             </th>
+
             <th
-              className="sort__both"
-              onClick={() =>
-                setTableSorted([
-                  ...table.sort((a, b) => {
-                    return a.city > b.city;
-                  }),
-                ])
+              id="city"
+              className={
+                sortLabel !== "city"
+                  ? "sort__both"
+                  : sortAsc
+                  ? "sort__asc"
+                  : "sort__des"
               }
+              onClick={(e) => {
+                if (e.target.id === sortLabel) {
+                  setTableSorted([...tableSorted.reverse()]);
+                  setSortAsc(!sortAsc);
+                } else {
+                  setSortLabel(e.target.id);
+                  setSortAsc(true);
+                  setTableSorted([
+                    ...table.sort((a, b) => {
+                      return a.city.toLowerCase() > b.city.toLowerCase();
+                    }),
+                  ]);
+                }
+              }}
             >
               City
             </th>
             <th
-              className="sort__both"
-              onClick={() =>
-                setTableSorted([
-                  ...table.sort((a, b) => {
-                    return a.state > b.state;
-                  }),
-                ])
+              id="state"
+              className={
+                sortLabel !== "state"
+                  ? "sort__both"
+                  : sortAsc
+                  ? "sort__asc"
+                  : "sort__des"
               }
+              onClick={(e) => {
+                if (e.target.id === sortLabel) {
+                  setTableSorted([...tableSorted.reverse()]);
+                  setSortAsc(!sortAsc);
+                } else {
+                  setSortLabel(e.target.id);
+                  setSortAsc(true);
+                  setTableSorted([
+                    ...table.sort((a, b) => {
+                      return a.state.toLowerCase() > b.state.toLowerCase();
+                    }),
+                  ]);
+                }
+              }}
             >
               State
             </th>
             <th
-              className="sort__both"
-              onClick={() =>
-                setTableSorted([
-                  ...table.sort((a, b) => {
-                    return a.zip > b.zip;
-                  }),
-                ])
+              id="zip"
+              className={
+                sortLabel !== "zip"
+                  ? "sort__both"
+                  : sortAsc
+                  ? "sort__asc"
+                  : "sort__des"
               }
+              onClick={(e) => {
+                if (e.target.id === sortLabel) {
+                  setTableSorted([...tableSorted.reverse()]);
+                  setSortAsc(!sortAsc);
+                } else {
+                  setSortLabel(e.target.id);
+                  setSortAsc(true);
+                  setTableSorted([
+                    ...table.sort((a, b) => {
+                      return a.zip.toLowerCase() > b.zip.toLowerCase();
+                    }),
+                  ]);
+                }
+              }}
             >
               Zip Code
             </th>
