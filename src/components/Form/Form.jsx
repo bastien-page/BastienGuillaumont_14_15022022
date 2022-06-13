@@ -8,7 +8,7 @@ import departments from "../../assets/dataDepartment.json";
 import { useDispatch } from "react-redux";
 
 import { addUser } from "../../slices/user.slice";
-import Modal from "../Modal/Modal";
+import Modal from "bg-modal-react";
 
 function Form() {
   const [firstName, setFirstName] = useState();
@@ -22,8 +22,6 @@ function Form() {
   const [department, setDepartment] = useState();
 
   const [openModal, setOpenModal] = useState(false);
-  const onOpenModal = () => setOpenModal(true);
-  const onCloseModal = () => setOpenModal(false);
 
   const dispatch = useDispatch();
 
@@ -43,8 +41,17 @@ function Form() {
   const createEmployee = (e) => {
     e.preventDefault();
     dispatch(addUser(employeeData));
-    //e.target.reset();
-    onOpenModal();
+    e.target.reset();
+    setOpenModal(true);
+  };
+
+  const customModal = {
+    backgroundContainer: "rgba(146, 146, 146, 0.6)",
+    backgroundColor: "#8ea719",
+    topPosition: "50%",
+    leftPosition: "50%",
+    boxShadow: "5px 5px 15px 5px rgba(0, 0, 0, 0.43)",
+    color: "white",
   };
 
   return (
@@ -112,7 +119,9 @@ function Form() {
         <input className="btn" type="submit" value="Save" />
       </form>
       {openModal && (
-        <Modal message={"Employee created"} onCloseModal={onCloseModal} />
+        <Modal style={customModal} setOpenModal={setOpenModal}>
+          Employee created
+        </Modal>
       )}
     </div>
   );

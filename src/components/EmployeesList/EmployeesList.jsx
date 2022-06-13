@@ -9,6 +9,7 @@ function EmployeesList() {
   const filter = useSelector((state) => state.table.filter);
   const indexStart = useSelector((state) => state.table.indexStart);
   const indexEnd = useSelector((state) => state.table.indexEnd);
+
   let table = [...employees];
 
   const [tableSorted, setTableSorted] = useState(
@@ -36,18 +37,19 @@ function EmployeesList() {
   return (
     <div className="employeeList">
       <HeaderTable />
-
       <table className="employeeList__table">
         <thead>
           <tr>
             <th
-              className="sort__asc"
+              className="sort__both"
               onClick={() => {
-                setTableSorted(
-                  table.sort((a, b) => {
-                    return a.firstName > b.firstName;
-                  })
-                );
+                setTableSorted([
+                  ...table.sort((a, b) => {
+                    return (
+                      a.firstName.toLowerCase() > b.firstName.toLowerCase()
+                    );
+                  }),
+                ]);
               }}
             >
               First Name
@@ -55,12 +57,11 @@ function EmployeesList() {
             <th
               className="sort__both"
               onClick={() => {
-                console.log("test");
-                setTableSorted(
-                  table.sort((a, b) => {
-                    return a.lastName > b.lastName;
-                  })
-                );
+                setTableSorted([
+                  ...table.sort((a, b) => {
+                    return a.lastName.toLowerCase() > b.lastName.toLowerCase();
+                  }),
+                ]);
               }}
             >
               Last Name
@@ -68,11 +69,11 @@ function EmployeesList() {
             <th
               className="sort__both"
               onClick={() =>
-                setTableSorted(
-                  table.sort((a, b) => {
+                setTableSorted([
+                  ...table.sort((a, b) => {
                     return a.startDate > b.startDate;
-                  })
-                )
+                  }),
+                ])
               }
             >
               Start Date
@@ -80,11 +81,11 @@ function EmployeesList() {
             <th
               className="sort__both"
               onClick={() =>
-                setTableSorted(
-                  table.sort((a, b) => {
+                setTableSorted([
+                  ...table.sort((a, b) => {
                     return a.department > b.department;
-                  })
-                )
+                  }),
+                ])
               }
             >
               Departement
@@ -92,11 +93,11 @@ function EmployeesList() {
             <th
               className="sort__both"
               onClick={() =>
-                setTableSorted(
-                  table.sort((a, b) => {
+                setTableSorted([
+                  ...table.sort((a, b) => {
                     return a.birthday > b.birthday;
-                  })
-                )
+                  }),
+                ])
               }
             >
               Date of Birth
@@ -104,11 +105,11 @@ function EmployeesList() {
             <th
               className="sort__both"
               onClick={() =>
-                setTableSorted(
-                  table.sort((a, b) => {
+                setTableSorted([
+                  ...table.sort((a, b) => {
                     return a.street > b.street;
-                  })
-                )
+                  }),
+                ])
               }
             >
               Street
@@ -116,11 +117,11 @@ function EmployeesList() {
             <th
               className="sort__both"
               onClick={() =>
-                setTableSorted(
-                  table.sort((a, b) => {
+                setTableSorted([
+                  ...table.sort((a, b) => {
                     return a.city > b.city;
-                  })
-                )
+                  }),
+                ])
               }
             >
               City
@@ -128,11 +129,11 @@ function EmployeesList() {
             <th
               className="sort__both"
               onClick={() =>
-                setTableSorted(
-                  table.sort((a, b) => {
+                setTableSorted([
+                  ...table.sort((a, b) => {
                     return a.state > b.state;
-                  })
-                )
+                  }),
+                ])
               }
             >
               State
@@ -140,11 +141,11 @@ function EmployeesList() {
             <th
               className="sort__both"
               onClick={() =>
-                setTableSorted(
-                  table.sort((a, b) => {
+                setTableSorted([
+                  ...table.sort((a, b) => {
                     return a.zip > b.zip;
-                  })
-                )
+                  }),
+                ])
               }
             >
               Zip Code

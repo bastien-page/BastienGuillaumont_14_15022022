@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
  * @returns employee for table
  */
 
-function Employee({ employee }) {
+function EmployeeItem({ employee }) {
   return (
     <tr>
       <td>{employee.firstName}</td>
@@ -23,8 +23,8 @@ function Employee({ employee }) {
   );
 }
 
-export default Employee;
+export default EmployeeItem;
 
-Employee.propTypes = {
+EmployeeItem.propTypes = {
   employee: PropTypes.object,
 };

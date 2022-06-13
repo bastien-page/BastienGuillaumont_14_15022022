@@ -1,5 +1,10 @@
 import PropTypes from "prop-types";
 
+/**
+ *
+ * @returns custom Dropdown
+ */
+
 function Dropdown({ name, datas, onChange, children }) {
   return (
     <div className="input">
