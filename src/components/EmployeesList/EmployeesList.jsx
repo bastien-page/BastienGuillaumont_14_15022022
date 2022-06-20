@@ -117,9 +117,7 @@ function EmployeesList() {
                   setSortAsc(true);
                   setTableSorted([
                     ...table.sort((a, b) => {
-                      return (
-                        a.startDate.toLowerCase() > b.startDate.toLowerCase()
-                      );
+                      return new Date(b.startDate) - new Date(a.startDate);
                     }),
                   ]);
                 }
@@ -173,9 +171,7 @@ function EmployeesList() {
                   setSortAsc(true);
                   setTableSorted([
                     ...table.sort((a, b) => {
-                      return (
-                        a.birthday.toLowerCase() > b.birthday.toLowerCase()
-                      );
+                      return new Date(b.birthday) - new Date(a.birthday);
                     }),
                   ]);
                 }
