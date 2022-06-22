@@ -1,0 +1,38 @@
+[
+  {
+    "firstName": "Bastien",
+    "lastName": "Pierre",
+    "birthday": "1990-03-13",
+    "startDay": "2022-06-01",
+    "street": "Place de la Mairie",
+    "city": "Londres ",
+    "state": "ID",
+    "zip": "76509",
+    "department": "engineering",
+    "id": 1655801422824
+  },
+  {
+    "firstName": "Laure",
+    "lastName": "Martin",
+    "birthday": "1976-01-13",
+    "startDay": "2019-07-01",
+    "street": "Rue de l'hotel de ville",
+    "city": "Paris ",
+    "state": "AK",
+    "zip": "75000",
+    "department": "legal",
+    "id": 1655801422825
+  },
+  {
+    "firstName": "Pierre",
+    "lastName": "Antoine",
+    "birthday": "1963-04-04",
+    "startDay": "1990-12-18",
+    "street": "65 avenue Floch ",
+    "city": "Marseille ",
+    "state": "WI",
+    "zip": "13000",
+    "department": "marketing",
+    "id": 1655801422826
+  }
+]
