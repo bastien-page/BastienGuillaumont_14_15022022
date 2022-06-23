@@ -6,8 +6,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/employee" element={<Employee />} />
+        <Route path="/BastienGuillaumont_14_15022022/" element={<Home />} />
+        <Route
+          path="/BastienGuillaumont_14_15022022/employee"
+          element={<Employee />}
+        />
       </Routes>
     </BrowserRouter>
   );
