@@ -56,7 +56,7 @@ function Form() {
 
   return (
     <div className="form">
-      <Link className="btn" to="/employee">
+      <Link className="btn" to="/BastienGuillaumont_14_15022022/employee">
         View Current Employees
       </Link>
       <form action="" onSubmit={(e) => createEmployee(e)}>

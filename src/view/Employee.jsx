@@ -11,7 +11,7 @@ function Employee() {
         <h2>Current Employees</h2>
         <EmployeesList />
 
-        <Link className="btn employee" to="/">
+        <Link className="btn employee" to="/BastienGuillaumont_14_15022022/">
           Home
         </Link>
       </main>
